@@ -12,8 +12,11 @@ public class CreateBTree {
 
     public static Node binaryTree(int[] A){
 
+        // Approach-1 (Using Queue/ Iterative)
+        // TC = O(n), SC=O(n)
+
         // create a queue of type Node to store node address
-        Queue<Node> q = new LinkedList<>();
+        /*Queue<Node> q = new LinkedList<>();
 
         if(A.length == 0) return null;
 
@@ -47,6 +50,28 @@ public class CreateBTree {
             }
 
         }
+
+        return root;*/
+
+
+
+        // Approach-2 (Recursive)
+        // TC=O(n), SC=O(h), h = height of the tree
+        return createRecursiveTree(A, 0);
+
+    }
+
+    public static Node createRecursiveTree(int[] A, int i){
+        // Base case
+        if(i>=A.length || A[i] == -1)
+            return null;
+
+        Node root = new Node(A[i]);
+//        System.out.printf("Left child of %d is %d\n", A[i], A[i+1]);
+        root.left = createRecursiveTree(A, 2*i+1);
+
+//        System.out.printf("Right child of %d is %d\n", A[i], A[i+1]);
+        root.right = createRecursiveTree(A, 2*i+2);
 
         return root;
     }
@@ -110,10 +135,12 @@ public class CreateBTree {
 
     public static void main(String[] args) {
         int[] arr = {10,20,30,40,50,60,70};
+//        int[] arr = {1,2,3,-1,-1,-1,4,-1,-1};
 
         Node root = binaryTree(arr);
         if(root != null)
             System.out.println("Root of the tree: "+ root.data);
+
 
         System.out.print("Preorder traversal: ");
         preOrder(root);
