@@ -50,9 +50,9 @@ public class Demo {
     public static void main(String[] args) {
 
 //        String s = "abciiidef";
-        String s ="weallloveyou";
-        int maxVowels = countMaxVowels(s);
-        System.out.println("Maximum vowels in a substring of size 3 is = "+ maxVowels);
+//        String s ="weallloveyou";
+//        int maxVowels = countMaxVowels(s);
+//        System.out.println("Maximum vowels in a substring of size 3 is = "+ maxVowels);
 
 
 //        List<Integer> list = Arrays.asList(-9, -18, 0, 25, 4);
@@ -165,5 +165,9 @@ public class Demo {
 //        }
 //
 //        System.out.println(countVowels);
+
+        int[] arr ={1,2,3,4,5};
+        int[] res = Arrays.stream(arr).map(n -> n*n).toArray();
+        System.out.println(Arrays.toString(res));
     }
 }

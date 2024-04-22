@@ -1,11 +1,12 @@
 package com.java.DSAQuestions.Tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
-public class LeftView {
-
-    private static List<Integer> leftViewOfTree(Node root){
+public class RightView {
+    private static List<Integer> rightViewOfTree(Node root){
         // Approach-1
         /*List<Integer> ans = new ArrayList<>();
         if(root == null) return ans;
@@ -22,8 +23,8 @@ public class LeftView {
                 Node temp = q.poll();
 
                 if(temp!=null){
-                    if(temp.left!=null) q.offer(temp.left);
                     if(temp.right!=null) q.offer(temp.right);
+                    if(temp.left!=null) q.offer(temp.left);
                 }
                 size--;
             }
@@ -44,7 +45,7 @@ public class LeftView {
 
             for (int i = 0; i < size; i++) {
                 Node temp = q.poll();
-                if(i==0) ans.add(temp.data);
+                if(i==size-1 && temp!=null) ans.add(temp.data);
 
                 if(temp!=null){
                     if(temp.left!=null) q.offer(temp.left);
@@ -59,12 +60,11 @@ public class LeftView {
         List<Integer> ans = new ArrayList<>();
         int level=0;
 
-        getLeftView(root,level,ans);
-//        System.out.println("Level "+level);
+        getRightView(root,level,ans);
         return ans;
     }
 
-    private static void getLeftView(Node root, int level,List<Integer> ans) {
+    private static void getRightView(Node root, int level,List<Integer> ans) {
 
         if(root==null) return;
 
@@ -72,9 +72,8 @@ public class LeftView {
             ans.add(root.data);
         }
 
-        getLeftView(root.left, level+1,ans);
-        getLeftView(root.right,level+1,ans);
-
+        getRightView(root.right,level+1,ans);
+        getRightView(root.left, level+1,ans);
     }
 
 
@@ -90,7 +89,7 @@ public class LeftView {
         root.right.left = new Node(6);
         root.right.right = new Node(7);
 
-        List<Integer> leftView = leftViewOfTree(root);
-        System.out.println("Left view: "+ leftView);
+        List<Integer> rightView = rightViewOfTree(root);
+        System.out.println("Right view: "+ rightView);
     }
 }
