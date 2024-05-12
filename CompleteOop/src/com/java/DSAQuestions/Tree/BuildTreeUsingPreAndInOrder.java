@@ -33,7 +33,7 @@ public class BuildTreeUsingPreAndInOrder {
         return root;
     }
 
-    private static int findPosInorder(int[] in, int target, int start,int end){
+    public static int findPosInorder(int[] in, int target, int start,int end){
         for (int i = start; i <= end ; i++) {
             if(in[i] == target)
                 return i;
@@ -113,7 +113,7 @@ public class BuildTreeUsingPreAndInOrder {
     }
 
 
-    private static void printInOrder(Node p){
+    public static void printInOrder(Node p){
         if(p!=null){
             printInOrder(p.left);
             System.out.print(p.data+ " ");
