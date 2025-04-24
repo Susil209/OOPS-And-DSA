@@ -5,6 +5,7 @@ import java.util.List;
 
 public class BoundaryTraversal {
 
+    // TC=O(n), SC=O(h)
     public static List<Integer> printBoundary(Node root){
         List<Integer> ans = new ArrayList<>();
 

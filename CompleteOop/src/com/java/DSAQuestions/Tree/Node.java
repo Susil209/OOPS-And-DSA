@@ -1,25 +1,25 @@
 package com.java.DSAQuestions.Tree;
 
 public class Node{
-    int data;
-    Node left;
-    Node right;
+    public int data;
+    public Node left;
+    public Node right;
 
-    Node()
+    public Node()
     {
         this.data = 0;
         this.left = null;
         this.right = null;
     }
 
-    Node(int data)
+    public Node(int data)
     {
         this.data = data;
         this.left = null;
         this.right = null;
     }
 
-    Node(int data, Node left, Node right)
+    public Node(int data, Node left, Node right)
     {
         this.data = data;
         this.left = left;
