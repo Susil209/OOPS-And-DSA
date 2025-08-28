@@ -37,15 +37,15 @@ public class CreateAVLTree {
 
     // ========== Private Helper Methods ==========
 
-    private int height(Node node) {
+    public static int height(Node node) {
         return (node == null) ? 0 : node.height;
     }
 
-    private int getBalanceFactor(Node node) {
+    public static int getBalanceFactor(Node node) {
         return (node == null) ? 0 : height(node.left) - height(node.right);
     }
 
-    private Node rightRotate(Node root) {
+    public static Node rightRotate(Node root) {
         Node child = root.left;
         Node childRight = child.right;
 
@@ -61,7 +61,7 @@ public class CreateAVLTree {
         return child;
     }
 
-    private Node leftRotate(Node root) {
+    public static Node leftRotate(Node root) {
         Node child = root.right;
         Node childLeft = child.left;
 
